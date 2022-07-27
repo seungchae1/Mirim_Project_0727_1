@@ -26,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setMultiChoiceItems(itemsArr, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i, boolean b) {
-                        if(b) btnCheck.setText(itemsArr[i]);
+                        checkArr[i]=b;
+                        btnCheck.setText("");
+                        for (int a=0; a<checkArr.length; a++){
+                            if(checkArr[a]) btnCheck.append(itemsArr[a]);
+                        }
                     }
                 });
                 dlg.setNegativeButton("닫기",null);
